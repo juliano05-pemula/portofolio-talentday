@@ -248,60 +248,20 @@
       </div>
     </div>
   </section>
+                    <!-- contact -->
+ <div class="contact-section" id="contact">
 
-  <!-- ===================== CONTACT SECTION ===================== -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3>Let's work together</h3>
-          <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon"><i data-lucide="mail"></i></div>
-              <div>
-                <h4>Email</h4>
-                <p>arfanjuliano2009@gmail.com</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i data-lucide="map-pin"></i></div>
-              <div>
-                <h4>Location</h4>
-                <p>Jakarta, Indonesia</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i data-lucide="phone"></i></div>
-              <div>
-                <h4>Phone</h4>
-                <p>+62 851 2295 8697</p>
-              </div>
-            </div>
-          </div>
-        </div>
+  <a 
+  href="https://wa.me/6289505191851?text=Halo%20Arfan,%20saya%20tertarik%20dengan%20portofolio%20kamu"
+  target="_blank"
+  class="btn-submit wa-btn">
 
-        <div class="contact-form">
-          <form action="#">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" placeholder="Your Name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="your@email.com">
-            </div>
-            <div class="form-group">
-              <label for="msg">Message</label>
-              <textarea id="msg" rows="5" placeholder="Type your message here..."></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+    <i class='bx bxl-whatsapp'></i>
+    Hubungi Saya Via WhatsApp!!👋🙌
+
+  </a>
+
+</div>
 
   <!-- ===================== FOOTER ===================== -->
   <footer>
@@ -321,6 +281,9 @@
   <a href="https://linkedin.com/in/username" target="_blank" class="icon">
     <i class="fab fa-linkedin-in"></i>
   </a>
+<a href="/CV-Arfan.pdf" download="CV-Arfan.pdf" class="cv-btn">
+    <i class='bx bx-download'></i> Download CV
+</a>
 </div>
       </div>
     </div>
@@ -333,5 +296,23 @@
  
   lucide.createIcons();
 </script>
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    document.body.classList.toggle("no-scroll");
+  });
+
+  // otomatis nutup pas klik menu
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    });
+  });
+</script>
+
 </body>
 </html>
