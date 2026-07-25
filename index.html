@@ -30,7 +30,9 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
+      
       </ul>
       <!-- Mobile toggle icon if needed -->
       <div class="menu-toggle"><i data-lucide="menu"></i></div>
@@ -248,6 +250,53 @@
       </div>
     </div>
   </section>
+<!-- ===================== CERTIFICATES ===================== -->
+<section id="certificates">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Certificates</h2>
+            <p>My Webinar, Bootcamp & Course Certificates</p>
+        </div>
+
+        <div class="certificate-wrapper">
+
+            
+            <div class="certificate-slider">
+
+                <div class="certificate-card">
+                    <img src="/images/codelamp-ai.jpg" alt="Codelamp AI Certificate">
+                    <div class="certificate-content">
+                        <h3>Codelamp AI</h3>
+                        <p>Certificate of Completion for Codelamp AI Course</p>
+
+                        
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="/images/codelamp-roadmap.jpg" alt="Codelamp Roadmap Certificate">
+                    <div class="certificate-content">
+                        <h3>Codelamp Roadmap</h3>
+                        <p>Certificate of Completion for Codelamp Roadmap Course</p>
+
+                      
+
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <img src="/images/cysec-sertif.jpg" alt="Cyber Security Certificate">
+                    <div class="certificate-content">
+                        <h3>Cyber Security</h3>
+                        <p>Certificate of Completion for Cyber Security Course</p>
+
+
+                    </div>
+                </div>
+
+          
+</section>
                     <!-- contact -->
  <div class="contact-section" id="contact">
 
@@ -282,10 +331,10 @@
     <i class="fab fa-linkedin-in"></i>
   </a>
  <a href="CV-pklArfan.pdf" download class="cv-btn">
->>>>>>> c5f5286 (update cv)
     <i class='bx bx-download'></i> Download CV
 </a>
 </div>
+
       </div>
     </div>
   </footer>
@@ -313,7 +362,75 @@
       document.body.classList.remove("no-scroll");
     });
   });
+  //================ Slider =================//
+
+const slider = document.querySelector(".certificate-slider");
+
+document.querySelector(".next").onclick = () => {
+
+    slider.scrollBy({
+
+        left:350,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+document.querySelector(".prev").onclick = () => {
+
+    slider.scrollBy({
+
+        left:-350,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+//================ Modal =================//
+
+const modal = document.querySelector(".certificate-modal");
+
+const modalImage = document.getElementById("modalImage");
+
+document.querySelectorAll(".view-btn").forEach(btn=>{
+
+    btn.onclick=()=>{
+
+        modal.style.display="flex";
+
+        modalImage.src=btn.dataset.img;
+
+    }
+
+});
+
+document.querySelector(".close-modal").onclick=()=>{
+
+    modal.style.display="none";
+
+}
+
+modal.onclick=(e)=>{
+
+    if(e.target===modal){
+
+        modal.style.display="none";
+
+    }
+
+}
 </script>
+<div class="certificate-modal">
+
+    <span class="close-modal">&times;</span>
+
+    <img id="modalImage">
+
+</div>
 
 </body>
 </html>
