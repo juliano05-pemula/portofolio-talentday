@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #031a3f, #000420);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 22px;
+  overflow: hidden;
+}
+
+/* efek partikel latar */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle, rgba(0,255,255,0.25) 2px, transparent 3px) 0 0 / 90px 90px,
+    radial-gradient(circle, rgba(0,255,255,0.2) 2px, transparent 3px) 45px 45px / 110px 110px;
+  opacity: .12;
+  animation: particles 12s linear infinite;
+}
+
+@keyframes particles {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-200px); }
+}
+
+
+.quiz-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 25px;
+  padding: 38px;
+  width: 100%;
+  max-width: 570px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+  color: aqua;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px aqua;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: #dbdbff;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.btn-grid {
+  display: grid;
+  gap: 16px;
+  margin: 27px 0;
+}
+
+/* Tombol */
+.btn {
+  background: rgba(0, 255, 255, 0.17);
+  border: 1px solid rgba(0, 255, 255, 0.35);
+  color: #fff;
+  padding: 15px;
+  border-radius: 13px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* efek hover keren */
+.btn:hover:not([disabled]) {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.7);
+}
+
+/* efek ripple saat diklik */
+.btn:active:not([disabled])::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 255, 255, 0.4);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  animation: ripple .35s linear;
+}
+
+@keyframes ripple {
+  to { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: .85;
+}
+
+/* Efek Jawaban */
+.btn.correct {
+  background: rgba(0, 255, 0, .25);
+  border-color: rgb(0, 255, 0);
+  box-shadow: 0 0 20px rgba(0, 255, 0, .9);
+  animation: pop .45s ease;
+}
+
+.btn.wrong {
+  background: rgba(255, 0, 0, .25);
+  border-color: rgb(255, 0, 0);
+  box-shadow: 0 0 20px rgba(255, 0, 0, .9);
+  animation: pop .45s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
+
+/* Tombol Next / Restart */
+.next-btn,
+.restart-btn {
+  padding: 15px;
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, aqua, #40ffff);
+  color: #031e39;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.next-btn:hover,
+.restart-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px aqua;
+}
+
+.hidden { display: none; }

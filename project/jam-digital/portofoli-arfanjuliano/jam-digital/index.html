@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock UI Design</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="updateClock">
+      <h2>Sekarang pukul</h2>
+      <div id="time">
+        <div><span id="hour">00</span><span>Hours</span></div>
+        <div><span id="minutes">00</span><span>Minutes</span></div>
+        <div><span id="seconds">00</span><span>Seconds</span></div>
+        <div><span id="ampm">AM</span></div>
+      </div>
+      <div id="date">
+        <span id="dayname"></span>,
+        <span id="daynum"></span>
+        <span id="month"></span>
+        <span id="year"></span>
+      </div>
+    </div>
+
+    <script>
+      function updateClock() {
+        let h = new Date().getHours();
+        let m = new Date().getMinutes();
+        let s = new Date().getSeconds();
+        let am = "AM";
+
+        if (h >= 12) {
+          h -= 12;
+          am = "PM";
+        }
+        if (h == 0) h = 12;
+
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        document.getElementById("hour").innerText = h;
+        document.getElementById("minutes").innerText = m;
+        document.getElementById("seconds").innerText = s;
+        document.getElementById("ampm").innerText = am;
+
+        let d = new Date();
+        let days = [
+          "Minggu",
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+        ];
+        let months = [
+          "Januari",
+          "Februari",
+          "Maret",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Agustus",
+          "September",
+          "Oktober",
+          "November",
+          "Desember",
+        ];
+
+        document.getElementById("dayname").innerText = days[d.getDay()];
+        document.getElementById("daynum").innerText = d.getDate();
+        document.getElementById("month").innerText = months[d.getMonth()];
+        document.getElementById("year").innerText = d.getFullYear();
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+
+
+
+  </body>
+</html>

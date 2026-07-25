@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio — Arfan</title>
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- main css -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- particles.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
+      defer
+    ></script>
+
+    <meta name="theme-color" content="#071022" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <script>
+      const slides = document.querySelector(".slides");
+      const images = document.querySelectorAll(".slides img");
+      const nextBtn = document.querySelector(".next");
+      const prevBtn = document.querySelector(".prev");
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.style.transform = `translateX(${-index * 100}%)`;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showSlide(currentIndex);
+      });
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showSlide(currentIndex);
+      });
+    </script>
+
+    <div id="particles-js" aria-hidden="true"></div>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <h1>Arfan <span class="accent">Portfolio</span></h1>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav id="nav-menu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero fade-in">
+        <div class="container hero-inner">
+          <h2>
+            Hi, saya <span class="accent" style="color: aqua">Arfan</span>
+          </h2>
+          <div id="typing" class="typing" aria-live="polite"></div>
+          <p class="lead">
+            Portofolio pribadi saya — fokus pada <strong>Web Dev</strong> &
+            <strong>Mobile</strong>.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">Lihat Project</a>
+            <a class="btn btn-secondary" href="#skills">Skills</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="reveal">
+        <div class="container">
+          <!-- Foto Profil -->
+          <img
+            src="foto-foto/fotoarfan.jpg"
+            alt="Foto Arfan"
+            class="about-photo"
+          />
+
+          <!-- Judul -->
+          <h2>Tentang <span style="color: aqua">Saya</span></h2>
+
+          <!-- Deskripsi -->
+          <p>
+            Saya adalah pelajar di
+            <span style="color: aqua"><b>SMK Plus Pelita Nusantara</b></span>
+            Jurusan RPL yang tertarik pada Web Development, Mobile Development,
+            dan Cyber Security. Saya telah mengikuti berbagai bootcamp untuk
+            mengembangkan keterampilan saya di bidang ini. Saya memiliki
+            pengalaman dalam membangun beberapa project sederhana.
+          </p>
+
+          <!-- Slider Sertifikat -->
+          <!-- Slider Sertifikat -->
+          <div class="certificate-slider">
+            <button class="prev">❮</button>
+            <div class="slides">
+              <img src="foto-foto/codelamp-roadmap.jpg" alt="Sertifikat 1" />
+              <img src="foto-foto/cysec-sertif.jpg" alt="Sertifikat 2" />
+              <img src="foto-foto/codelamp-ai.jpg" alt="Sertifikat 3" />
+            </div>
+            <button class="next">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="reveal">
+        <div class="container">
+          <h3>Projects</h3>
+          <p class="muted small">Klik kartu untuk melihat detail project.</p>
+          <div class="projects-grid">
+            <article
+              class="card"
+              onclick="window.location.href='jam digital/index.html'"
+            >
+              <img
+                src="foto-foto/image.png"
+                alt="Jam Digital"
+                class="card-img"
+              />
+              <h4>projct jam digital </h4>
+              <p>
+                Project pertama saya dengan bantuan Artificial Intelligence
+                ~(HTML/CSS/JS).
+              </p>
+            </article>
+
+            <article
+              class="card"
+              onclick="window.location.href='project-quiziz/index.html'"
+            >
+              <img
+                src="foto-foto/quiziz.png"
+                alt="Projek Portofolio"
+                class="card-img"
+              />
+              <h4>quiziz by arfan</h4>
+              <p>dibuat berdasarkan pengalaman dan tantangan (HTML/CSS/JS)</p>
+            </article>
+          </div>
+        </div>
+        l
+      </section>
+      <!-- Skills Section -->
+      <section id="skills" class="skills-section">
+        <h2 class="skills-title">My Tools & Skills</h2>
+        <p class="skills-desc">
+          Beberapa teknologi dan alat yang sering saya gunakan dalam membuat
+          project.
+        </p>
+
+        <!-- TOOLS -->
+        <div class="skills-category">
+          <h3 class="category-title">🛠 Tools</h3>
+          <div class="skills-grid">
+            <div class="skill" data-name="VS Code">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                alt="VS Code logo"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Git">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                alt="Git logo"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="GitHub">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub logo"
+                class="skill-logo"
+                style="filter: invert(1)"
+              />
+            </div>
+            <div class="skill" data-name="Figma">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                alt="Figma logo"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Postman">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                alt="Postman logo"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Android Studio">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"
+                alt="Android Studio logo"
+                class="skill-logo"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- LANGUAGES & FRAMEWORKS -->
+        <div class="skills-category">
+          <h3 class="category-title">💻 Languages & Frameworks</h3>
+          <div class="skills-grid">
+            <div class="skill" data-name="HTML5">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
+                alt="HTML5"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="CSS3">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
+                alt="CSS3"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="JavaScript">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JS"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="React">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Tailwind CSS">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                alt="Tailwind"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Kotlin">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+                alt="Kotlin"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Laravel">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original-wordmark.svg"
+                alt="Laravel"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="PHP">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                alt="PHP"
+                class="skill-logo"
+              />
+            </div>
+            <div class="skill" data-name="Python">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python"
+                class="skill-logo"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+     <!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="container contact-wrap">
+    <h3>Hubungi Saya</h3>
+    <form id="contactForm">
+      <div class="grid-2">
+        <input type="text" id="name" placeholder="Nama" required />
+        <input type="email" id="email" placeholder="Email" required />
+      </div>
+      <textarea id="message" rows="5" placeholder="Pesan" required></textarea>
+
+      <div class="buttons">
+        <button type="button" class="btn btn-primary" id="sendToWhatsApp">
+          Kirim Pesan
+        </button>
+      </div>
+
+      <!-- SOCIAL ICONS DI DALAM FORM -->
+      <div class="contact-socials">
+        <a href="https://github.com/juliano05-pemula" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/aaarfannn_?igsh=c2VhZjFzcmtrcXpz" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </form>
+  </div>
+</section>
+<footer>
+  <div class="footer-content">
+    <div>© 2025 Arfan</div>
+  </div>
+</footer>
+
+    <!-- Scroll top -->
+    <button id="scrollTop" aria-label="Scroll ke atas">↑</button>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 250%;
+  animation: bgmove 8s infinite alternate;
+  overflow: hidden;
+}
+
+/* partikel bokeh */
+body::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(0, 255, 255, 0.25);
+  filter: blur(120px);
+  border-radius: 50%;
+  animation: floating 8s infinite ease-in-out;
+}
+body::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 0, 150, 0.25);
+  filter: blur(120px);
+  border-radius: 50%;
+  animation: floating2 9s infinite ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    top: 15%;
+    left: 10%;
+  }
+  100% {
+    top: 60%;
+    left: 70%;
+  }
+}
+@keyframes floating2 {
+  0% {
+    bottom: 10%;
+    right: 15%;
+  }
+  100% {
+    bottom: 55%;
+    right: 60%;
+  }
+}
+
+/* CLOCK BOX */
+#updateClock {
+  position: relative;
+  text-align: center;
+  padding: 35px 45px;
+  border-radius: 22px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
+  animation: fadeIn 0.9s ease;
+  transition: 0.35s ease;
+}
+
+#updateClock:hover {
+  transform: translateY(-7px) scale(1.04);
+  box-shadow: 0 0 45px rgba(0, 255, 255, 0.4);
+}
+
+/* random glow ping */
+#updateClock::after {
+  content: "";
+  position: absolute;
+  width: 85%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, cyan, transparent);
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scan 2.5s infinite linear;
+}
+@keyframes scan {
+  0% {
+    width: 25%;
+    opacity: 0.3;
+  }
+  100% {
+    width: 85%;
+    opacity: 1;
+  }
+}
+
+/* TIME */
+#time {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  gap: 14px;
+}
+
+/* Box angka */
+#time div span:first-child {
+  display: block;
+  width: 100px;
+  height: 82px;
+  background: rgba(0, 225, 255, 0.28);
+  backdrop-filter: blur(6px);
+  margin-bottom: 6px;
+  line-height: 82px;
+  font-size: 2.6em;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  animation: neonPulse 1.8s infinite alternate;
+  transition: 0.2s;
+  user-select: none;
+}
+
+#time div span:first-child:hover {
+  transform: scale(1.17) rotate(2deg);
+}
+
+/* label */
+#time div span:nth-child(2) {
+  display: block;
+  height: 30px;
+  background: rgba(0, 120, 255, 0.65);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  line-height: 30px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+
+/* detik jadi warna merah */
+#time div:last-child span:first-child {
+  background: rgba(255, 0, 102, 0.28);
+  border: 2px solid rgba(255, 0, 102, 0.5);
+}
+
+/* neon effect */
+@keyframes neonPulse {
+  from {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  }
+  to {
+    box-shadow: 0 0 35px rgba(0, 255, 255, 1);
+  }
+}
+
+/* tanggal */
+#date {
+  margin-top: 16px;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  animation: slideUp 1s ease;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes bgmove {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+/* Styling Navigasi Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Sembunyi di kanan */
+    height: 100vh;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98); /* Warna background menu */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    z-index: 1000;
+    gap: 2rem;
+  }
+
+  /* Munculkan menu saat class active ditambahkan JS */
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    list-style: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+
+  /* Animasi list muncul satu-satu */
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Delay animasi tiap menu */
+  .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+  .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+  .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+  .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+  .nav-links.active li:nth-child(5) { transition-delay: 0.5s; }
+  .nav-links.active li:nth-child(6) { transition-delay: 0.6s; }
+
+  .nav-links li a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}

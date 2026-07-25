@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Sederhana — Arfan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>🎯 Quiz Interaktif</h1>
+    <p class="subtitle">Uji pengetahuanmu tentang dasar HTML, CSS, dan JavaScript!</p>
+
+    <div id="quiz-box">
+      <h2 id="question">Pertanyaan muncul di sini</h2>
+      <div id="answer-buttons" class="btn-grid"></div>
+      <button id="next-btn" class="next-btn">Selanjutnya</button>
+    </div>
+
+    <div id="result-box" class="hidden">
+      <h2>🎉 Hasil Quiz</h2>
+      <p id="score-text"></p>
+      <button id="restart-btn" class="restart-btn">Main Lagi</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
